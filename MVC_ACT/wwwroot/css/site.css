@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fdfdfd;
+    color: #333;
+    /* Make footer stick to bottom on short pages */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hero header with gradient background to match provided design */
+.hero {
+    /* Green animated gradient */
+    background: linear-gradient(135deg, #00b09b 0%, #34c759 50%, #96c93d 100%);
+    background-size: 200% 200%;
+    animation: heroGradient 12s ease-in-out infinite;
+    color: #fff;
+    padding: 30px 16px 24px;
+    text-align: center;
+}
+
+.site-title {
+    margin: 0 0 16px 0;
+    font-size: 40px;
+    font-weight: 800;
+    /* Subtle glow animation */
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.nav-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.08);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px 24px;
+    align-items: center;
+}
+
+.main-nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+}
+
+.main-nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    /* Center horizontally only to avoid vertical centering in flex layout */
+    margin: 0 auto;
+}
+
+footer {
+    background: #f3f3f3;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    /* Push footer to the bottom when content is short */
+    margin-top: auto;
+}
+
+/* Header animations */
+@keyframes heroGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 0 rgba(255,255,255,0.0); }
+    50% { text-shadow: 0 2px 14px rgba(255,255,255,0.7); }
+    100% { text-shadow: 0 0 0 rgba(255,255,255,0.0); }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero, .site-title {
+        animation: none !important;
+    }
+}
+
+/* Responsive Navigation */
+@media (max-width: 600px) {
+    .main-nav {
+        justify-content: center;
+    }
+
+    .site-title {
+        font-size: 30px;
+    }
+}

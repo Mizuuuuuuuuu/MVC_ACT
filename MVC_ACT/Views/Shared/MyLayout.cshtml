@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - My Website</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="hero">
+        <h1 class="site-title">My Personal Website</h1>
+        <div class="nav-card">
+            <nav class="main-nav" id="mainNav">
+                @{ var currentAction = (ViewContext.RouteData.Values["action"]?.ToString() ?? string.Empty); }
+                <a class="@(currentAction=="Index" ? "is-active" : null)" href="@Url.Action("Index", "Home")">Home</a>
+                <a class="@(currentAction=="About" ? "is-active" : null)" href="@Url.Action("About", "Home")">About Me</a>
+                <a class="@(currentAction=="Resume" ? "is-active" : null)" href="@Url.Action("Resume", "Home")">Resume</a>
+                <a class="@(currentAction=="Education" ? "is-active" : null)" href="@Url.Action("Education", "Home")">Education</a>
+                <a class="@(currentAction=="Experience" ? "is-active" : null)" href="@Url.Action("Experience", "Home")">Experience</a>
+                <a class="@(currentAction=="Skills" ? "is-active" : null)" href="@Url.Action("Skills", "Home")">Skills</a>
+                <a class="@(currentAction=="Projects" ? "is-active" : null)" href="@Url.Action("Projects", "Home")">Projects</a>
+                <a class="@(currentAction=="Hobbies" ? "is-active" : null)" href="@Url.Action("Hobbies", "Home")">Hobbies</a>
+                <a class="@(currentAction=="Gallery" ? "is-active" : null)" href="@Url.Action("Gallery", "Home")">Gallery</a>
+                <a class="@(currentAction=="Contact" ? "is-active" : null)" href="@Url.Action("Contact", "Home")">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My Website. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
